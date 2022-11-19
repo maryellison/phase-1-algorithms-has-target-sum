@@ -1,5 +1,28 @@
 function hasTargetSum(array, target) {
-  // Write your algorithm here
+  //   iterate through each number of the array
+  for (let i = 0; i < array.length; i++) {
+    //   for the current number, identify a complement that adds to the target (comp = target - num)
+    const complement = target - array[i]
+    //   iterate through the rest of the array
+    for (let j = i + 1; j < array.length; j++) {
+      //     check if any number is our complement
+      //     if so, return true
+      if (array[j] === complement) return true;  
+    }
+  }
+  // if I reach the end of the array, return false
+  return false;
+
+  // FIRST TRY - only passes 4 tests
+  // for(let i = 0; i < array.length; i++) {
+  //   let j = i + 1
+  //   if (array[i] + array[j] === target) {
+  //     return true
+  //   } else {
+  //     array[j] = array[j + 1];
+  //   }
+  //   return false;
+  // }
 }
 
 /* 
@@ -8,10 +31,22 @@ function hasTargetSum(array, target) {
 
 /* 
   Add your pseudocode here
+  hasTargetSum([22, 19, 4, 6, 30], 25)
+  iterate through each number of the array
+    for the current number, identify a complement that adds to the target (comp = target - num)
+    iterate through the rest of the array
+      check if any number is our complement
+      if so, return true
+  if I reach the end of the array, return false
 */
 
 /*
   Add written explanation of your solution here
+  the problem:
+  make a function 'hasTargetSum' that checks if two numbers from the array
+  add up to some target. For example, if I have an array `[1, 2, 3, 4]` and
+  the target is `6` I should return true because 2 and 4 add to 6. For each
+  number check if there's a number that adds to the target.
 */
 
 // You can run `node index.js` to view these console logs
